@@ -1,0 +1,235 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;         
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;   /* épaisseur standard */
+    font-style: normal; /* pas en italique par défaut */
+    font-size: 16px;
+}
+
+
+main {
+    flex: 1; /* pousse le footer en bas quand il y a peu de contenu */
+}
+
+/* Style pour les tablettes */
+@media (max-width: 768px) {
+    body {
+        font-size: 16px;
+    }
+}
+
+/* Style pour les téléphones */
+@media (max-width: 480px) {
+    body {
+        font-size: 14px;
+    }
+}
+
+#containvide {
+    height: 130px;
+}
+
+.page-title {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #4B4A8E;
+    font-size: 2rem;
+}
+
+.page-description {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #303030;
+    font-style: italic;
+}
+
+.image-card {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    margin: 20px auto;
+}
+
+.container-card {
+    min-height: 450px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.container-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(148, 176, 255, 0.3);
+}
+
+.container-img-card {
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background-color: #f8f9fa;
+}
+
+.card-body {
+    border-top: #30303044 1px solid;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    text-align: center;
+    padding: 20px;
+}
+
+.card-title {
+    font-size: 1.5rem;
+    color: #4B4A8E;
+    margin-bottom: 15px;
+}
+
+.card-text {
+    font-style: italic;
+    color: #303030;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.card-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: auto;
+}
+
+.card-buttons .btn {
+    border-radius: 25px;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.card-buttons .btn-outline-primary {
+    border-color: #94b0ff;
+    color: #94b0ff;
+}
+
+.card-buttons .btn-outline-primary:hover {
+    background-color: #94b0ff;
+    border-color: #94b0ff;
+    color: white;
+}
+
+.card-buttons .btn-primary {
+    background-color: #94b0ff;
+    border-color: #94b0ff;
+}
+
+.card-buttons .btn-primary:hover {
+    background-color: #7a9eff;
+    border-color: #7a9eff;
+}
+
+/* Responsive pour les cards */
+@media (max-width: 991px) {
+    .row-cols-lg-3 > * {
+        flex: 0 0 auto;
+        width: 50%;
+    }
+}
+
+@media (max-width: 767px) {
+    .row-cols-md-2 > * {
+        flex: 0 0 auto;
+        width: 100%;
+    }
+    
+    .container-card {
+        min-height: 400px;
+    }
+    
+    .page-title {
+        font-size: 1.5rem;
+    }
+    
+    .card-buttons {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .card-buttons .btn {
+        width: 100%;
+    }
+}
+
+/* Styles pour les filtres */
+.filters-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 12px 30px;
+    border: 2px solid #94b0ff;
+    background-color: white;
+    color: #4B4A8E;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: "Roboto", sans-serif;
+}
+
+.filter-btn:hover {
+    background-color: #f0f4ff;
+    transform: translateY(-2px);
+}
+
+.filter-btn.active {
+    background-color: #94b0ff;
+    color: white;
+    box-shadow: 0 4px 15px rgba(148, 176, 255, 0.4);
+}
+
+/* Styles pour les cartes filtrées */
+.container-card {
+    transition: all 0.5s ease;
+    order: 2; /* Par défaut, les cartes non filtrées sont après */
+}
+
+.container-card.highlighted {
+    order: 1; /* Les cartes filtrées passent en premier */
+    opacity: 1;
+    filter: blur(0);
+}
+
+.container-card.dimmed {
+    order: 2;
+    opacity: 0.5;
+    filter: blur(2px);
+    pointer-events: none; /* Empêche les clics sur les cartes floutées */
+}
+
+/* Responsive pour les filtres */
+@media (max-width: 767px) {
+    .filters-container {
+        gap: 10px;
+    }
+    
+    .filter-btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+}
