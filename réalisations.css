@@ -15,6 +15,29 @@ html, body {
     font-size: 16px;
 }
 
+/* Styliser la scrollbar pour qu'elle soit plus jolie */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f8f9ff;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #94b0ff;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #7a9eff;
+}
+
+/* Pour Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #94b0ff #f8f9ff;
+}
 
 main {
     flex: 1; /* pousse le footer en bas quand il y a peu de contenu */
